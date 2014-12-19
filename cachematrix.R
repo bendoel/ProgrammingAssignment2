@@ -4,19 +4,22 @@
 ## Write a short comment describing this function
 
 # function makeCacheMatrix for storing inverse matrix
+# only accept input square matrix
 makeCacheMatrix <- function(x = matrix()) {
+
+#var im for storing inverse matrix
   im <- NULL
   
-  # set value into variable x	
+  # update matrix x	
   set <- function(y){
     x <<- y
     im <<- NULL
   }
   
-  # return value of argument's x
+  # return value of input's x
   get <- function() x
   
-  # set inverse matrix into variable im on this function	
+  # set inverse matrix into variable im inside makeCacheMatrix's function	
   setInvMatrix <- function(invMatrix){
     im <<- invMatrix
   }
@@ -40,12 +43,12 @@ cacheSolve <- function(x, ...) {
   im <- x$getInvMatrix()
   
   if(!is.null(im)) {
-#   if going this way thats mean we already have the result of inverse matrix operation
+#   if going this way that mean we already have the result of inverse matrix operation
     message("getting cached data")
     return(im)
   }
   
-# if going this way thats mean we dont have the result, so lets do inverse matrix
+# if going this way that mean we don't have the result, so lets do inverse matrix
   data <- x$get()
   im <- solve(data)
 
